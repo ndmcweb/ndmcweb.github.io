@@ -12,6 +12,11 @@
 		margin: 0;
 	}
 
+	.left-column
+	{
+    	text-align: left;
+	}
+
 	#particle-canvas {
 		display: block;
 		box-sizing: border-box;
@@ -40,6 +45,39 @@
 		height: 100vh;
 		width: 100vw;
 	}
+	#org-logo {
+		position: absolute;
+		display: block;
+		height: 150px;
+		width: 150px;
+		z-index: 21;
+		left: 100%;
+		top: 100%;
+		transform: translate(-100%, -100%);
+		padding: 8px;
+	}
+
+	#center-image {
+		position: absolute;
+		display: block;
+		top: 48%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 21;
+		text-align: center;
+	}
+
+	#club-logo {
+		position: absolute;
+		display: block;
+		height: 150px;
+		width: 150px;
+		z-index: 21;
+		right: 100%;
+		top: 100%;
+		transform: translate(100%, -100%);
+		padding: 8px;
+	}
 
 </style>
 
@@ -50,7 +88,7 @@
 	</div>
 
 	<div id="main-content">
-		<nav id="hover-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark" style="--bs-bg-opacity: .5;">
+		<nav id="hover-navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent" style="--bs-bg-opacity: 0;">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="https://ndmcweb.github.io/">Exponent Continuum 2.0</a>
 		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,130 +103,45 @@
 		    </div>
 		  </div>
 		</nav>
-
-		<div class="container mt-4 p-0 text-center">
-			<P>Hello Anonymous<br>
-			We welcome you to register to our events<br>
-			Please in order to ensure clean registration process provide and recheck data with error resolution</P>
-		</div>
-
-		<!-- avoid tailing slash in form action -->
-		<form id="registration_form" action="https://ndmcweb.pythonanywhere.com/register" method="POST" class="container p-4 my-4 bg-dark" style="--bs-bg-opacity: .8;">
-			<!-- name -->
-			<div class="mb-4">
-			  <label for="exampleFormControlInput1" class="form-label">Name</label>
-			  <input name="name" type="text" class="form-control text-light bg-transparent" id="exampleFormControlInput1" placeholder="Valorant Pixie">
-			</div>
-
-			<!-- school -->
-			<div class="mb-4">
-			  <label for="exampleFormControlInput1" class="form-label">Name of Institue</label>
-			  <input name="school" type="text" class="form-control text-light bg-transparent" id="exampleFormControlInput1" placeholder="My Awesome School">
-			</div>
-
-			<!-- mobile -->
-			<div class="mb-4">
-			  <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
-			  <input name="mobile" type="text" class="form-control text-light bg-transparent" id="exampleFormControlInput1" placeholder="+880##########">
-			</div>
-
-			<!-- email -->
-			<div class="mb-4">
-			  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-			  <input name="email" type="email" class="form-control text-light bg-transparent" id="exampleFormControlInput1" placeholder="pixie.awesome@gmail.com">
-			</div>
-
-			<!-- class -->
-			<div class="mb-4">
-				<label for="exampleFormControlInput1" class="form-label">Select Class</label>
-				<select name="class" class="form-select" aria-label="select your class">
-				  <option selected>click here to choose</option>
-				  <option value="1">Class 6</option>
-				  <option value="2">Class 7</option>
-				  <option value="3">Class 8</option>
-				  <option value="4">Class 9</option>
-				  <option value="5">Class 10</option>
-				  <option value="6">SSC 21</option>
-				  <option value="7">Class 12</option>
-				  <option value="8">HSC 21</option>
-				</select>
-			</div>
-
-			<div>
-				<label class="form-label mb-3">Select the events you want to join</label>
-			</div>
-
-
-			<!-- event Math Olympiad -->	
-			<div class="form-check m-2">
-			  <input name="events" value="1" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Math Olympiad
-			  </label>
-			</div>
-
-			<!-- event Mathematical Content Making -->	
-			<div class="form-check m-2">
-			  <input name="events" value="2" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Mathematical Content Making
-			  </label>
-			</div>
-
-			<!-- event Math Meme Competition -->	
-			<div class="form-check m-2">
-			  <input name="events" value="3" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Math Meme Competition
-			  </label>
-			</div>
-
-			<!-- event Mathematical Fiction Writing -->	
-			<div class="form-check m-2">
-			  <input name="events" value="4" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Mathematical Fiction Writing
-			  </label>
-			</div>
-
-			<!-- event Applied Calculus -->	
-			<div class="form-check m-2">
-			  <input name="events" value="5" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Applied Calculus
-			  </label>
-			</div>
-
-			<!-- event Quiz -->	
-			<div class="form-check m-2">
-			  <input name="events" value="8" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Quiz
-			  </label>
-			</div>
-
-			<!-- event Sudoku -->	
-			<div class="form-check m-2">
-			  <input name="events" value="9" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	Sudoku
-			  </label>
-			</div>
-
-			<!-- event THE FORMULA KING / THE QUICK SOLVER -->	
-			<div class="form-check m-2">
-			  <input name="events" value="10" class="form-check-input" type="checkbox" id="flexCheckDefault">
-			  <label class="form-check-label" for="flexCheckDefault">
-			  	The Formula King / The Quick Solver
-			  </label>
-			</div>
-
-			<div class="mt-4 d-flex flex-row-reverse">
-				<button type="submit" class="btn btn-success mx-2">Proceed</button>
-				<a href="/" type="button" class="btn btn-outline-danger mx-2">Discard</a>
-			</div>
-		</form>
 	</div>
+	<div id="cover-containter">
+		<div id="center-image">
+			<h4 class="text-light animate__animated animate__fadeIn">Your registraion was <B>successful</B></h4>
+			<table>
+				<tr>
+					<td class="left-column">
+						Name
+					</td>
+					<td>:</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Institution
+					</td>
+					<td>:</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Segments
+					</td>
+					<td>:</td>
+				</tr>
+			</table>
+			<!-- <div id="expocon-logo">
+				<img class="img-fluid bg-transparent border-0 animate__animated animate__fadeIn" src="https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/exco2%2C0%20logo-01%20Compressed.png">
+			</div>
+			<a href="/registration" class="btn btn-outline-light btn-lg my-4 animate__animated animate__delay-5s animate__flash">Register for ExpoCon Now</a> -->
+		</div>
+		<div id="org-logo">
+			<img class="img-fluid" src="https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/College%20Logo-01%20Compressed.png"></img>
+		</div>
+		<div id="club-logo">
+			<img class="img-fluid" src="https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/ndmc_logo-01%20Compressed.png">
+		</div>
+		<div id="particle-canvas"></div>
+	</div>
+
+	
 
 
 	<script type="text/javascript">
