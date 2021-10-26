@@ -3,17 +3,71 @@
 <head>
 	<meta charset="utf-8">
 	<title>Event Info</title>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 </head>
 <style type="text/css">
 		body {
-			background-image: url(https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/web-01%20Compressed.png);
+			margin: 0;
+			padding: 0;
+		}
+
+		.bruteforce-background {
+			position: fixed;
+			top: 0;
+			z-index: -1000;
+			height: 100vh;
+			width: 100vw;
+			background: black;
+			background-image: url("https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/web-01%20Compressed.png");
 			background-size: cover;
 		}
+
+		.bruteforce-overlay {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(0, 0, 0, 0.6);
+			z-index: 21;
+		}
+
+		#particle-canvas {
+			height: 100%;
+			width: 100%;
+		}
+
+		.bruteforce-container {
+			z-index: 22;
+		}
+
+		.bruteforce-cardinfo {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 32px;
+		}
+
+		.bruteforce-linkbutton {
+			display: flex;
+			justify-content: start;
+		}
+
+		.bruteforce-linkbutton__left {
+			display: flex;
+			justify-content: end;
+		}
 </style>
-<body>	
-	<!-- navigation bar -->
+<body class="text-light">
+	<div class="bruteforce-background">
+		<div id="particle-canvas"></div>
+		<div class="bruteforce-overlay"></div>
+	</div>
+
 	<nav id="hover-navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent">
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="#">Exponent Continuum 2.0</a>
@@ -23,7 +77,7 @@
 	    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 	      <ul class="navbar-nav mb-2 mb-lg-0">
 	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="https://ndmcweb.github.io">Home</a>
+	          <a class="nav-link active" aria-current="page" href="#">Home</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link" href="https://fb.me/e/7D1c1Si0i">Event Details</a>
@@ -34,34 +88,173 @@
 	      </ul>
 	    </div>
 	  </div>
-	</nav> 
+	</nav>
 
-	<!-- main contents -->
-	<div class="container-fluid">
-		<div class="row gx-4">
-			<div class="col-3">
-				<a href="https://www.facebook.com/events/912308609389794/?post_id=915759109044744&view=permalink&__cft__[0]=AZUrV33Eb9qE0zWzlNFRXg1UzPbeQ6oJJbIW1KghyYd2iWksXj74ghRRmmeDDQkrWt4dIguVaje5gt_CvruuWTOakpBzomFujTfHwoMTAUQm47XvvTiegFkNgPoK60JS1GWnLHc-ryUqBAUYPwnzc8I_IL9_6OWnQsyhw2vOs18zYw&__tn__=%2CO%2CP-R" target="_blank"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/243220340_4374319559332398_6083384413398406420_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFQJUA9VpHrHDkFi6uJW6PWjH_KmO6MbXSMf8qY7oxtdJJiG9u1JZ7Ac20LUPdPwJ2BwgNtKTBy6vtd_ZLrUREN&_nc_ohc=ID-7C0NVwA8AX9Wet3D&_nc_ht=scontent.fdac39-1.fna&oh=ad157ee18a7f2c76568aa8bad5a9d0d9&oe=619A6EE4" width="100%"></a>
-			</div>
-			<div class="col-3">
+	<div class="container bruteforce-container my-4">
+		<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+		  <div class="carousel-indicators">
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		  </div>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <!--start embed-->
+		      <a href="https://www.facebook.com/events/912308609389794/?post_id=916597558960899&view=permalink&__cft__[0]=AZUtTphd7ATNL8L90efBc6cqNNPq0YNwNbnx1FvRCc99mnWfBILzuxuz_3gkWhFcS2yvgIcxBVq6k-Y5baEfnCiV7SGAgg6CkfMvdChk8kWAzdszQZI6of34doyz0IlXg9KD-RjQVXShnGKV6epuRRWMPsBcSv-OB2W-4TfqZ0EuHA&__tn__=%2CO%2CP-R" target=”_blank”>
+		      	<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245517005_4377779545653066_7012361329683104182_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHPpFszecePwf0FhKOptiUhDVLWnN2FpqkNUtac3YWmqbLibW2uBlQQ3-LuSsCZsFIddJMeUX-YqbmNJxfggQMU&_nc_ohc=oPUaIMgzDnwAX9U7huB&_nc_ht=scontent.fdac39-1.fna&oh=8b60cb19d13b8ac5814ca521e4ce7e07&oe=619DE3DA" width="50%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245649057_4377779845653036_5059792101743244437_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeEi1pVGULqL5-da5YM9zVeLSNxE3IKlQGlI3ETcgqVAadiYT7tOLaMdNJuiTJVcM_kBCXMJDakbqoRdqULY-ebj&_nc_ohc=koaEopZe59UAX-v3Xcz&tn=s_eKvh71Exo0iB2q&_nc_ht=scontent.fdac39-1.fna&oh=23a9dc9af7ab01a002f5c020a4620867&oe=619D3F77" width="50%">
+		      </a>
+		      <!--end embed-->
+		    </div>
+		    <div class="carousel-item">
+		    	<!--add more-->
+		    </div>
+		    <div class="carousel-item">
+		    	<!--add more-->
+		    </div>
+		  </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+	  </button>
+	</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<div class="container bruteforce-container text-center">
+		<h2 class="mt-6">Highlights</h2>
+	</div>
+
+	<div class="container bruteforce-container my-4">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-12">
 				<a href="https://www.facebook.com/events/912308609389794/?post_id=915710685716253&view=permalink&__cft__[0]=AZVnKbbkMqeRsnNlpK-qaoiHFtrWPVywzfgFuXPqkx6jWEj85vRHzKJJbmt8udqtjn28j7TFTse0J3DjHATd-_i4mwVxbzjh65bvIeR4nR54yiAChtTZ-O7gNpEmcPu2bb6VB0PfsavQR2Q3SkUtdP2KwDd4YbanbB8bWyGJDQqM9Q&__tn__=%2CO%2CP-R" target="_blank">
 					<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246812155_4374110776019943_21782511527000113_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHHHxHIAWfPtTUgNgyXslyK1cwIMWAYYFDVzAgxYBhgUAlpwZpFCs7a0t9jkaAGKPuj6Gi9GPLAsNC-ZCgTiAOu&_nc_ohc=aRygqXyEUy8AX8I5peQ&_nc_ht=scontent.fdac39-1.fna&oh=95bcc41891e5674fa7c462a23a2ab6d5&oe=619BF12F" width="100%">
 				</a>
 			</div>
-			<div class="col-6">
-				<a href="https://www.facebook.com/events/912308609389794/?post_id=916597558960899&view=permalink&__cft__[0]=AZUtTphd7ATNL8L90efBc6cqNNPq0YNwNbnx1FvRCc99mnWfBILzuxuz_3gkWhFcS2yvgIcxBVq6k-Y5baEfnCiV7SGAgg6CkfMvdChk8kWAzdszQZI6of34doyz0IlXg9KD-RjQVXShnGKV6epuRRWMPsBcSv-OB2W-4TfqZ0EuHA&__tn__=%2CO%2CP-R" target=”_blank”>
-					<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245517005_4377779545653066_7012361329683104182_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHPpFszecePwf0FhKOptiUhDVLWnN2FpqkNUtac3YWmqbLibW2uBlQQ3-LuSsCZsFIddJMeUX-YqbmNJxfggQMU&_nc_ohc=oPUaIMgzDnwAX9U7huB&_nc_ht=scontent.fdac39-1.fna&oh=8b60cb19d13b8ac5814ca521e4ce7e07&oe=619DE3DA" width="50%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245649057_4377779845653036_5059792101743244437_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeEi1pVGULqL5-da5YM9zVeLSNxE3IKlQGlI3ETcgqVAadiYT7tOLaMdNJuiTJVcM_kBCXMJDakbqoRdqULY-ebj&_nc_ohc=koaEopZe59UAX-v3Xcz&tn=s_eKvh71Exo0iB2q&_nc_ht=scontent.fdac39-1.fna&oh=23a9dc9af7ab01a002f5c020a4620867&oe=619D3F77" width="50%">
+			<div class="col-md-6 col-sm-6 col-12">
+				<a href="https://www.facebook.com/events/912308609389794/?post_id=915710685716253&view=permalink&__cft__[0]=AZVnKbbkMqeRsnNlpK-qaoiHFtrWPVywzfgFuXPqkx6jWEj85vRHzKJJbmt8udqtjn28j7TFTse0J3DjHATd-_i4mwVxbzjh65bvIeR4nR54yiAChtTZ-O7gNpEmcPu2bb6VB0PfsavQR2Q3SkUtdP2KwDd4YbanbB8bWyGJDQqM9Q&__tn__=%2CO%2CP-R" target="_blank">
+					<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246812155_4374110776019943_21782511527000113_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHHHxHIAWfPtTUgNgyXslyK1cwIMWAYYFDVzAgxYBhgUAlpwZpFCs7a0t9jkaAGKPuj6Gi9GPLAsNC-ZCgTiAOu&_nc_ohc=aRygqXyEUy8AX8I5peQ&_nc_ht=scontent.fdac39-1.fna&oh=95bcc41891e5674fa7c462a23a2ab6d5&oe=619BF12F" width="100%">
 				</a>
 			</div>
 		</div>
-		<div class="row"><!-- 
-			<div class="col-12">
-				<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246999795_4369874309776923_8523717313392105700_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeHsFZ2LYF-NAUilsFAvKk_zUOcv4QwN1IVQ5y_hDA3UhWj2yG1PnnNud6TdYuMaUDEeLbFMeC2vsxt_dBjBQ-j2&_nc_ohc=6Gp6_46eXa8AX9tDP9g&_nc_ht=scontent.fdac39-1.fna&oh=ffa064c1f5ca091539225c5b93af904d&oe=619CBF82" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247197913_4369874413110246_4240569459287666610_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeE3oVCu5Ku1H8PcvzLXMBBy0UZwABDyJE_RRnAAEPIkT0ugDednGaZK0-NI_EXJQXh4Hgo_OW2cjKlI05SHyWRb&_nc_ohc=IWaM_6wYaVsAX8QBrZq&_nc_ht=scontent.fdac39-1.fna&oh=d7322bc44febddaf9cd5dab53e4776b3&oe=619CA3C0" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247284985_4369874589776895_3658093336976777600_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeEb7-my9BEXBVCEYNIopaCK9dTaylBdAxT11NrKUF0DFJlIjkLvJAATpvE0qmlbPaNfNP7UDtnuSKRqnz70IL-j&_nc_ohc=Ei1qGHn9wYQAX95FkJd&_nc_ht=scontent.fdac39-1.fna&oh=f638d759b5e84d4e042fe821a831cd5b&oe=619D8F6A" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247558487_4369874719776882_300939483068640052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeEwbkfJZtHIcBNgJrDy8m_JoRVmRO7PPg2hFWZE7s8-DQzZNyo88OLgdeeXtdA95ELXCQwhzsOeVik63LyFMB7i&_nc_ohc=QmDgR5ioUksAX_dvFo4&_nc_ht=scontent.fdac39-1.fna&oh=9373a4a85bcb0c3933f2f45869a8610f&oe=619AF054" width="25%">
+	</div>
+
+	<br>
+	<br>
+	<br>
+
+	<div class="container bruteforce-container text-center">
+		<h2 class="mt-6">Segments</h2>
+	</div>
+
+	<div class="container bruteforce-container bg-dark my-4 p-0">
+		<div class="row">
+			<div class="col-md-6 col-12">
+				<img class="img-fluid" src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246999795_4369874309776923_8523717313392105700_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeHsFZ2LYF-NAUilsFAvKk_zUOcv4QwN1IVQ5y_hDA3UhWj2yG1PnnNud6TdYuMaUDEeLbFMeC2vsxt_dBjBQ-j2&_nc_ohc=6Gp6_46eXa8AX9tDP9g&_nc_ht=scontent.fdac39-1.fna&oh=ffa064c1f5ca091539225c5b93af904d&oe=619CBF82">
 			</div>
-		 --></div>
+			<div class="col bruteforce-cardinfo">
+				<div>
+					<ul>
+						<li class="mt-3 fw-bold">There will be three types of content acceptable</li>
+							<ul class="text-warning">
+								<li>Theroy Explainer</li>
+								<li>Problem Solution</li>
+								<li>Describing Mathmetical History</li>
+							</ul>
+						<li class="mt-3 fw-bold">Preferred Video duration is 3-5 minutes</li>
+						<li class="mt-3 fw-bold">Content Can be either Bangla or English</li>
+					</ul>
+				</div>
+				<div class="bruteforce-linkbutton mt-4">
+					<a href="" class="btn btn-success mx-3">REGISTER NOW</a>
+					<a href="" class="btn btn-primary">READ ON FACEBOOK</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container bruteforce-container bg-dark my-4 p-0">
+		<div class="row">
+			<div class="col-md-6 col-12">
+				<img class="img-fluid" src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246999795_4369874309776923_8523717313392105700_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeHsFZ2LYF-NAUilsFAvKk_zUOcv4QwN1IVQ5y_hDA3UhWj2yG1PnnNud6TdYuMaUDEeLbFMeC2vsxt_dBjBQ-j2&_nc_ohc=6Gp6_46eXa8AX9tDP9g&_nc_ht=scontent.fdac39-1.fna&oh=ffa064c1f5ca091539225c5b93af904d&oe=619CBF82">
+			</div>
+			<div class="col bruteforce-cardinfo order-md-first">
+				<div class="text-end">
+					<ul style="direction: rtl;">
+						<li class="mt-3 fw-bold">There will be three types of content acceptable</li>
+							<ul class="text-warning">
+								<li>Theroy Explainer</li>
+								<li>Problem Solution</li>
+								<li>Describing Mathmetical History</li>
+							</ul>
+						<li class="mt-3 fw-bold">Preferred Video duration is 3-5 minutes</li>
+						<li class="mt-3 fw-bold">Content Can be either Bangla or English</li>
+					</ul>
+				</div>
+				<div class="bruteforce-linkbutton bruteforce-linkbutton__left mt-4">
+					<a href="" class="btn btn-success mx-3">REGISTER NOW</a>
+					<a href="" class="btn btn-primary me-4">READ ON FACEBOOK</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
+	<!-- main contents>
+		<div class="container-fluid">
+			<div class="row gx-4">
+				<div class="col-3">
+					<a href="https://www.facebook.com/events/912308609389794/?post_id=915759109044744&view=permalink&__cft__[0]=AZUrV33Eb9qE0zWzlNFRXg1UzPbeQ6oJJbIW1KghyYd2iWksXj74ghRRmmeDDQkrWt4dIguVaje5gt_CvruuWTOakpBzomFujTfHwoMTAUQm47XvvTiegFkNgPoK60JS1GWnLHc-ryUqBAUYPwnzc8I_IL9_6OWnQsyhw2vOs18zYw&__tn__=%2CO%2CP-R" target="_blank"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/243220340_4374319559332398_6083384413398406420_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFQJUA9VpHrHDkFi6uJW6PWjH_KmO6MbXSMf8qY7oxtdJJiG9u1JZ7Ac20LUPdPwJ2BwgNtKTBy6vtd_ZLrUREN&_nc_ohc=ID-7C0NVwA8AX9Wet3D&_nc_ht=scontent.fdac39-1.fna&oh=ad157ee18a7f2c76568aa8bad5a9d0d9&oe=619A6EE4" width="100%"></a>
+				</div>
+				<div class="col-3">
+					<a href="https://www.facebook.com/events/912308609389794/?post_id=915710685716253&view=permalink&__cft__[0]=AZVnKbbkMqeRsnNlpK-qaoiHFtrWPVywzfgFuXPqkx6jWEj85vRHzKJJbmt8udqtjn28j7TFTse0J3DjHATd-_i4mwVxbzjh65bvIeR4nR54yiAChtTZ-O7gNpEmcPu2bb6VB0PfsavQR2Q3SkUtdP2KwDd4YbanbB8bWyGJDQqM9Q&__tn__=%2CO%2CP-R" target="_blank">
+						<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246812155_4374110776019943_21782511527000113_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHHHxHIAWfPtTUgNgyXslyK1cwIMWAYYFDVzAgxYBhgUAlpwZpFCs7a0t9jkaAGKPuj6Gi9GPLAsNC-ZCgTiAOu&_nc_ohc=aRygqXyEUy8AX8I5peQ&_nc_ht=scontent.fdac39-1.fna&oh=95bcc41891e5674fa7c462a23a2ab6d5&oe=619BF12F" width="100%">
+					</a>
+				</div>
+				<div class="col-6">
+					<a href="https://www.facebook.com/events/912308609389794/?post_id=916597558960899&view=permalink&__cft__[0]=AZUtTphd7ATNL8L90efBc6cqNNPq0YNwNbnx1FvRCc99mnWfBILzuxuz_3gkWhFcS2yvgIcxBVq6k-Y5baEfnCiV7SGAgg6CkfMvdChk8kWAzdszQZI6of34doyz0IlXg9KD-RjQVXShnGKV6epuRRWMPsBcSv-OB2W-4TfqZ0EuHA&__tn__=%2CO%2CP-R" target=”_blank”>
+						<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245517005_4377779545653066_7012361329683104182_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHPpFszecePwf0FhKOptiUhDVLWnN2FpqkNUtac3YWmqbLibW2uBlQQ3-LuSsCZsFIddJMeUX-YqbmNJxfggQMU&_nc_ohc=oPUaIMgzDnwAX9U7huB&_nc_ht=scontent.fdac39-1.fna&oh=8b60cb19d13b8ac5814ca521e4ce7e07&oe=619DE3DA" width="50%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/245649057_4377779845653036_5059792101743244437_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeEi1pVGULqL5-da5YM9zVeLSNxE3IKlQGlI3ETcgqVAadiYT7tOLaMdNJuiTJVcM_kBCXMJDakbqoRdqULY-ebj&_nc_ohc=koaEopZe59UAX-v3Xcz&tn=s_eKvh71Exo0iB2q&_nc_ht=scontent.fdac39-1.fna&oh=23a9dc9af7ab01a002f5c020a4620867&oe=619D3F77" width="50%">
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/246999795_4369874309776923_8523717313392105700_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeHsFZ2LYF-NAUilsFAvKk_zUOcv4QwN1IVQ5y_hDA3UhWj2yG1PnnNud6TdYuMaUDEeLbFMeC2vsxt_dBjBQ-j2&_nc_ohc=6Gp6_46eXa8AX9tDP9g&_nc_ht=scontent.fdac39-1.fna&oh=ffa064c1f5ca091539225c5b93af904d&oe=619CBF82" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247197913_4369874413110246_4240569459287666610_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeE3oVCu5Ku1H8PcvzLXMBBy0UZwABDyJE_RRnAAEPIkT0ugDednGaZK0-NI_EXJQXh4Hgo_OW2cjKlI05SHyWRb&_nc_ohc=IWaM_6wYaVsAX8QBrZq&_nc_ht=scontent.fdac39-1.fna&oh=d7322bc44febddaf9cd5dab53e4776b3&oe=619CA3C0" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247284985_4369874589776895_3658093336976777600_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeEb7-my9BEXBVCEYNIopaCK9dTaylBdAxT11NrKUF0DFJlIjkLvJAATpvE0qmlbPaNfNP7UDtnuSKRqnz70IL-j&_nc_ohc=Ei1qGHn9wYQAX95FkJd&_nc_ht=scontent.fdac39-1.fna&oh=f638d759b5e84d4e042fe821a831cd5b&oe=619D8F6A" width="25%"><img src="https://scontent.fdac39-1.fna.fbcdn.net/v/t1.6435-9/247558487_4369874719776882_300939483068640052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=44856e&_nc_eui2=AeEwbkfJZtHIcBNgJrDy8m_JoRVmRO7PPg2hFWZE7s8-DQzZNyo88OLgdeeXtdA95ELXCQwhzsOeVik63LyFMB7i&_nc_ohc=QmDgR5ioUksAX_dvFo4&_nc_ht=scontent.fdac39-1.fna&oh=9373a4a85bcb0c3933f2f45869a8610f&oe=619AF054" width="25%">
+				</div>
+			</div>
+		</div>
+	<main contents-->
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		// particle.min.js hosted on GitHub
+		// Scroll down for initialisation code
+
+		!function(a){var b="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===global&&global;"function"==typeof define&&define.amd?define(["exports"],function(c){b.ParticleNetwork=a(b,c)}):"object"==typeof module&&module.exports?module.exports=a(b,{}):b.ParticleNetwork=a(b,{})}(function(a,b){var c=function(a){this.canvas=a.canvas,this.g=a.g,this.particleColor=a.options.particleColor,this.x=Math.random()*this.canvas.width,this.y=Math.random()*this.canvas.height,this.velocity={x:(Math.random()-.5)*a.options.velocity,y:(Math.random()-.5)*a.options.velocity}};return c.prototype.update=function(){(this.x>this.canvas.width+20||this.x<-20)&&(this.velocity.x=-this.velocity.x),(this.y>this.canvas.height+20||this.y<-20)&&(this.velocity.y=-this.velocity.y),this.x+=this.velocity.x,this.y+=this.velocity.y},c.prototype.h=function(){this.g.beginPath(),this.g.fillStyle=this.particleColor,this.g.globalAlpha=.7,this.g.arc(this.x,this.y,1.5,0,2*Math.PI),this.g.fill()},b=function(a,b){this.i=a,this.i.size={width:this.i.offsetWidth,height:this.i.offsetHeight},b=void 0!==b?b:{},this.options={particleColor:void 0!==b.particleColor?b.particleColor:"#fff",background:void 0!==b.background?b.background:"#1a252f",interactive:void 0!==b.interactive?b.interactive:!0,velocity:this.setVelocity(b.speed),density:this.j(b.density)},this.init()},b.prototype.init=function(){if(this.k=document.createElement("div"),this.i.appendChild(this.k),this.l(this.k,{position:"absolute",top:0,left:0,bottom:0,right:0,"z-index":1}),/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background))this.l(this.k,{background:this.options.background});else{if(!/\.(gif|jpg|jpeg|tiff|png)$/i.test(this.options.background))return console.error("Please specify a valid background image or hexadecimal color"),!1;this.l(this.k,{background:'url("'+this.options.background+'") no-repeat center',"background-size":"cover"})}if(!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.particleColor))return console.error("Please specify a valid particleColor hexadecimal color"),!1;this.canvas=document.createElement("canvas"),this.i.appendChild(this.canvas),this.g=this.canvas.getContext("2d"),this.canvas.width=this.i.size.width,this.canvas.height=this.i.size.height,this.l(this.i,{position:"relative"}),this.l(this.canvas,{"z-index":"20",position:"relative"}),window.addEventListener("resize",function(){return this.i.offsetWidth===this.i.size.width&&this.i.offsetHeight===this.i.size.height?!1:(this.canvas.width=this.i.size.width=this.i.offsetWidth,this.canvas.height=this.i.size.height=this.i.offsetHeight,clearTimeout(this.m),void(this.m=setTimeout(function(){this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&this.o.push(this.p),requestAnimationFrame(this.update.bind(this))}.bind(this),500)))}.bind(this)),this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&(this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p),this.canvas.addEventListener("mousemove",function(a){this.p.x=a.clientX-this.canvas.offsetLeft,this.p.y=a.clientY-this.canvas.offsetTop}.bind(this)),this.canvas.addEventListener("mouseup",function(a){this.p.velocity={x:(Math.random()-.5)*this.options.velocity,y:(Math.random()-.5)*this.options.velocity},this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p)}.bind(this))),requestAnimationFrame(this.update.bind(this))},b.prototype.update=function(){this.g.clearRect(0,0,this.canvas.width,this.canvas.height),this.g.globalAlpha=1;for(var a=0;a<this.o.length;a++){this.o[a].update(),this.o[a].h();for(var b=this.o.length-1;b>a;b--){var c=Math.sqrt(Math.pow(this.o[a].x-this.o[b].x,2)+Math.pow(this.o[a].y-this.o[b].y,2));c>120||(this.g.beginPath(),this.g.strokeStyle=this.options.particleColor,this.g.globalAlpha=(120-c)/120,this.g.lineWidth=.7,this.g.moveTo(this.o[a].x,this.o[a].y),this.g.lineTo(this.o[b].x,this.o[b].y),this.g.stroke())}}0!==this.options.velocity&&requestAnimationFrame(this.update.bind(this))},b.prototype.setVelocity=function(a){return"fast"===a?1:"slow"===a?.33:"none"===a?0:.66},b.prototype.j=function(a){return"high"===a?5e3:"low"===a?2e4:isNaN(parseInt(a,10))?1e4:a},b.prototype.l=function(a,b){for(var c in b)a.style[c]=b[c]},b});
+
+		// Initialisation
+
+		var canvasDiv = document.getElementById('particle-canvas');
+		var options = {
+		  particleColor: '#9F6CD9',
+		  background: "https://raw.githubusercontent.com/ndmcweb/expocon2.0/main/web-01%20Compressed.png",
+		  interactive: true,
+		  speed: 'slow',
+		  density: 'high'
+		};
+		var particleCanvas = new ParticleNetwork(canvasDiv, options);
+	</script>
 </body>
 </html>
